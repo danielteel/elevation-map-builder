@@ -1,0 +1,47 @@
+{
+ "southWest": {
+  "lat": 34.6,
+  "long": -107.5
+ },
+ "northEast": {
+  "lat": 35.4,
+  "long": -106.533
+ },
+ "altBase": 4785.46,
+ "multipler": 18.643677130044843,
+ "accuracy": 10000,
+ "arcSecondsPerStep": 98.74592673052237,
+ "map": [
+  "{sgmtxkb_QMHA=:::3,%-56\" &*+.03:I]",
+  "nmd\\WRQA?=><2*&455\" %**-/3:G`",
+  "y£qµkb]i^IEFE?4,&455#!$++-049CR",
+  "fjbuw~zkiZdOJM<83-'166\"!#)+.04:CL",
+  "gmh]v¦ nc[[ORG770,&791$!!(+-/39FN",
+  "eZXoz|syyf_\\VAB42-+/99/$\"\"#+-/39AI",
+  "sacV^|u~~ldmQ;<9,,.6<:0'\"\"\"'.15;CK",
+  "j[VUWsiglhhsfZP841/87<;<B3####.16=DM",
+  "^ZVUSVi_l_agzXI54/5CC><;9/)$##026<DM",
+  "`ZXUSQ^][YVixzn@55.3GHA??8.*$$$148=DK",
+  "\\YUT[PPWUQaurSC8119DIGIC;2.,$%)5:>DK",
+  "c^YWTQPNMOLKJLD>315DLNGKDC4-,&%485>CN",
+  "veb_[VRNLLJHGDC8;836=EJFYF872%&7:8:AK",
+  "nitjx]TNJIHGFCF@?9986;DLJC;<.&&1;::@I",
+  "bchdlmYNKJJHIKKMHCC<88?RNFB>-''5<:<AK",
+  "y_}`_`WNMSSThYTSMHA?9:ETRLF:-''*/8=@F",
+  "f]ZYY\\P\\Pb~{bZKFAGB;?GXTRL>/('(;<>AH",
+  "sbmcYUQWXXh{yiSKHNCF:>H[XUR>2+((3;=CI",
+  "pot|cWY[V[u[ZNSMODF=?FQXUTA60()37;BM",
+  "|v}xfWd[\\w~wSSTKKIG@?J`\\WTK81))/4<EO",
+  "«¬obdig^vrZg^PVPMG@BL_^YVM>2**+3=IX",
+  "Ã¶· mgveismvguZSYUOHAEO^^YUKA<-*+1=IY",
+  "×ÆÅ¬x{sqzpwpmw^\\`QQLCHP^_[TIB<3,+/:J^",
+  "âÏÎÈ¼Åv~yy{{]nWSSKHNQ[a_VJJ>=7,,5D^",
+  "÷àÓÂÎÃ°·{uvh`YNHEKRZlg_XORJ@71,/;K",
+  "ìèÜÚÔÊÇ°ovnd]TQNFLR]ikd`XSGH=8--:H",
+  "ìçâàÙÖ´thcd^TYQLTQU`imgc]UQJD@8./>",
+  "ìçèâÞÞÜtijmYRJPQSUeqrme\\XYQJF=5.3",
+  "æñíÿéåãÈ}qg^VLucQ`^f{xqidcbULGB?30",
+  "æøëëúêÝ¿×s]WRhob^ajuyoolZLC>85FA",
+  "áæâìúíØÚÕÊ²~aX]_bg^_gu{uZ\\_NG@8ATTK"
+ ]
+}

@@ -1,7 +1,8 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
+import {setTimeout} from 'timers/promises';
 
-const square = await buildSquare({lat: 34.6, long: -107.5}, {lat: 35.4, long: -106.533}, 1000);//half a degree 'square' with 1nm resolution
+const square = await buildSquare({lat: 32.0733, long: -109.0063}, {lat: 36.9674, long: -103.0298}, 10000);
 fs.writeFileSync('./'+String(square.southWest.lat)+' '+String(square.southWest.long)+'  '+String(square.northEast.lat)+' '+String(square.northEast.long)+'.json', JSON.stringify(square, null, 1));
 
 function printMap(square){
@@ -23,7 +24,13 @@ function isBadLatLong(lat, long){
 
 //TODO manage crossing the -180/180 boundary (e.g. go from 180 long to -179 long)
 
-//default desired accuracy is 303.806 feet (3 arcseconds at equator), at equator best accuracy achieved will be 101.27ft
+/**
+ * 
+ * @param {{lat: number, long: number}} southWest 
+ * @param {{lat: number, long: number}} northEast 
+ * @param {number} desiredAccuracy in feet
+ * @returns 
+ */
 async function buildSquare(southWest, northEast, desiredAccuracy = 303.806){
     if (desiredAccuracy<101.27) desiredAccuracy=101.27;
 
@@ -121,23 +128,25 @@ async function buildSquare(southWest, northEast, desiredAccuracy = 303.806){
 
 
 
-function fetchElevation(lat, long, initialDelay=0, count=0){
+function fetchElevation(lat, long, count=0){
     lat=Math.round(lat*1000000)/1000000;
     long=Math.round(long*1000000)/1000000;
-    const controller = new AbortController();
-    const timeout = setTimeout(() => {
-        controller.abort();
-    }, 2000+Math.min(count*1000, 5000));
 
-    return fetch('https://nationalmap.gov/epqs/pqs.php?units=feet&output=json&x='+long+'&y='+lat+'callback=JSON_CALLBACK', {signal: controller.signal}).then( response => {
-        return response.json();
-    }).then(result => {
-        const q=result.USGS_Elevation_Point_Query_Service.Elevation_Query;
-        return Promise.resolve(Number(q.Elevation));
-    }).catch( error => {
-        console.log('error fetching #'+count, lat, long, 'retrying...');
-        return fetchElevation(lat, long, count+1);
-    }).finally( () => {
-        clearTimeout(timeout);
-    });
+    return setTimeout(Math.random(1)*(2000*(count+1))).then( ()=>{
+        const controller = new AbortController();
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 1000+Math.min(count*1000, 5000));
+        return fetch('https://nationalmap.gov/epqs/pqs.php?units=feet&output=json&x='+long+'&y='+lat+'callback=JSON_CALLBACK', {signal: controller.signal}).then( response => {
+            return response.json();
+        }).then(result => {
+            const q=result.USGS_Elevation_Point_Query_Service.Elevation_Query;
+            return Promise.resolve(Number(q.Elevation));
+        }).catch( error => {
+            console.log('error fetching #'+count, lat, long, 'retrying...');
+            return fetchElevation(lat, long, count+1);
+        }).finally( () => {
+            clearTimeout(timeout);
+        });
+    })
 }
